@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 
 function App({ currentEmotion }) {
   const [emotion, setEmotion] = useState("Happy");
+  const [secondary, setSecondary] = useState("tired")
 
   useEffect(() => {
     console.log(`It's ${emotion} around here!`);
@@ -23,6 +24,8 @@ function App({ currentEmotion }) {
       <button onClick={() => setEmotion("sad")}>SAD</button>
       <button onClick={() => setEmotion("happy")}>happy</button>
       <button onClick={() => setEmotion("confused")}>CONFUSED</button>
+      <h1>Secondary emotion is {secondary}</h1>
+      <button onClick={()=>setEmotion("tired")}></button>
     </div>
   );
 }
