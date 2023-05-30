@@ -1,3 +1,4 @@
+// Creating controlled form elements
 import "./App.css";
 import { useState } from "react";
 
@@ -5,31 +6,33 @@ function App() {
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("#000000");
   const submit = (e) => {
+    alert(`Color : ${title} Hex : ${color}`);
     e.preventDefault();
-    alert(`${title}, ${color}`);
-    setTitle("");
-    setColor("#000000");
+    setTitle("")
+    setColor("#000000")
   };
+
   return (
     <form onSubmit={submit}>
       <input
-        value={title}
-        onChange={(event) =>
-          setTitle(event.target.value)
-        }
         type="text"
-        placeholder="color title..."
+        placeholder="color name"
+        value={title}
+        onChange={(event) => {
+          setTitle(event.target.value);
+        }}
       />
       <input
-        value={color}
         type="color"
-        onChange={(event) =>
-          setColor(event.target.value)
-        }
+        value={color}
+        onChange={(event) => {
+          setColor(event.target.value);
+        }}
       />
-      <button>ADD</button>
+      <button>Submit</button>
     </form>
   );
 }
 
 export default App;
+
